@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 40 62% 91%;
+    --foreground: 168 30% 16%;
+
+    --card: 40 50% 97%;
+    --card-foreground: 168 30% 16%;
+
+    --popover: 40 50% 97%;
+    --popover-foreground: 168 30% 16%;
+
+    --primary: 168 69% 43%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 35% 92%;
+    --secondary-foreground: 168 30% 16%;
+
+    --muted: 40 30% 90%;
+    --muted-foreground: 168 12% 32%;
+
+    --accent: 168 45% 90%;
+    --accent-foreground: 168 40% 18%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 168 24% 74%;
+    --input: 168 24% 74%;
+    --ring: 168 69% 43%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, #0e7c68 0%, #22b79a 100%);
+    --gradient-hero: linear-gradient(180deg, #f7eeda 0%, #e7f7f3 50%, #f7eeda 100%);
+    --gradient-accent: linear-gradient(135deg, #0e7c68 0%, #22b79a 100%);
+    --shadow-glow: 0 0 40px -12px hsl(168 69% 43% / 0.35);
+    --shadow-accent-glow: 0 0 40px -10px hsl(168 69% 43% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-accent {
+    box-shadow: var(--shadow-accent-glow);
+  }
+}
